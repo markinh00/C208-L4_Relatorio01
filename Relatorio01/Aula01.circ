@@ -148,10 +148,10 @@ end TCL_Generic;&#13;
       <polyline fill="none" points="231,200 211,200" stroke="#000000" stroke-width="4"/>
       <polyline fill="none" points="211,260 232,260" stroke="#000000" stroke-width="4"/>
       <polyline fill="none" points="390,201 373,201" stroke="#000000" stroke-width="4"/>
-      <circ-port height="8" pin="140,400" width="8" x="206" y="256"/>
       <circ-port height="10" pin="410,380" width="10" x="385" y="255"/>
-      <circ-port height="8" pin="140,360" width="8" x="206" y="196"/>
       <circ-port height="10" pin="410,260" width="10" x="385" y="195"/>
+      <circ-port height="8" pin="140,360" width="8" x="206" y="196"/>
+      <circ-port height="8" pin="140,400" width="8" x="206" y="256"/>
       <rect fill="none" height="101" stroke="#000000" stroke-width="4" width="138" x="233" y="179"/>
       <polyline fill="none" points="374,260 390,260" stroke="#000000" stroke-width="4"/>
       <text font-family="SansSerif" font-size="12" text-anchor="middle" x="304" y="235">MS</text>
@@ -174,19 +174,19 @@ end TCL_Generic;&#13;
       <a name="label" val="S"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="0" loc="(410,380)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="label" val="Cout"/>
-      <a name="labelloc" val="east"/>
-    </comp>
+    <comp lib="1" loc="(340,380)" name="AND Gate"/>
     <comp lib="0" loc="(140,400)" name="Pin">
       <a name="label" val="B"/>
     </comp>
     <comp lib="0" loc="(140,360)" name="Pin">
       <a name="label" val="A"/>
     </comp>
-    <comp lib="1" loc="(340,380)" name="AND Gate"/>
+    <comp lib="0" loc="(410,380)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="Cout"/>
+      <a name="labelloc" val="east"/>
+    </comp>
   </circuit>
   <circuit name="SomadorCompleto">
     <a name="circuit" val="SomadorCompleto"/>
@@ -205,10 +205,10 @@ end TCL_Generic;&#13;
       <polyline fill="none" points="291,200 291,209" stroke="#000000" stroke-width="4"/>
       <polyline fill="none" points="320,200 320,208" stroke="#000000" stroke-width="4"/>
       <circ-port height="10" pin="860,390" width="10" x="265" y="325"/>
-      <circ-port height="8" pin="260,380" width="8" x="316" y="196"/>
       <circ-port height="10" pin="860,190" width="10" x="305" y="325"/>
-      <circ-port height="8" pin="270,190" width="8" x="256" y="196"/>
       <circ-port height="8" pin="270,250" width="8" x="286" y="196"/>
+      <circ-port height="8" pin="270,190" width="8" x="256" y="196"/>
+      <circ-port height="8" pin="260,380" width="8" x="316" y="196"/>
       <polyline fill="none" points="270,330 270,316" stroke="#000000" stroke-width="4"/>
       <polyline fill="none" points="310,315 310,331" stroke="#000000" stroke-width="4"/>
       <text font-family="SansSerif" font-size="12" text-anchor="middle" x="267" y="304">Cout</text>
@@ -227,28 +227,28 @@ end TCL_Generic;&#13;
     <wire from="(530,250)" to="(530,380)"/>
     <wire from="(710,370)" to="(790,370)"/>
     <wire from="(480,410)" to="(790,410)"/>
-    <comp lib="1" loc="(840,390)" name="OR Gate"/>
+    <comp lib="0" loc="(260,380)" name="Pin">
+      <a name="label" val="CARRYIN"/>
+    </comp>
+    <comp lib="0" loc="(860,390)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="CARRYOUT"/>
+      <a name="labelloc" val="south"/>
+    </comp>
     <comp lib="0" loc="(270,190)" name="Pin">
       <a name="label" val="A"/>
     </comp>
     <comp lib="0" loc="(270,250)" name="Pin">
       <a name="label" val="B"/>
     </comp>
-    <comp lib="0" loc="(260,380)" name="Pin">
-      <a name="label" val="CARRYIN"/>
-    </comp>
+    <comp loc="(480,190)" name="meioSomador"/>
+    <comp loc="(710,190)" name="meioSomador"/>
+    <comp lib="1" loc="(840,390)" name="OR Gate"/>
     <comp lib="0" loc="(860,190)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="label" val="SOMA"/>
-      <a name="labelloc" val="south"/>
-    </comp>
-    <comp loc="(710,190)" name="meioSomador"/>
-    <comp loc="(480,190)" name="meioSomador"/>
-    <comp lib="0" loc="(860,390)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="label" val="CARRYOUT"/>
       <a name="labelloc" val="south"/>
     </comp>
   </circuit>
@@ -308,23 +308,24 @@ end TCL_Generic;&#13;
     <wire from="(260,150)" to="(390,150)"/>
     <wire from="(390,150)" to="(390,270)"/>
     <wire from="(310,200)" to="(700,200)"/>
+    <comp loc="(580,400)" name="SomadorCompleto"/>
     <comp lib="0" loc="(260,430)" name="Ground"/>
     <comp loc="(720,400)" name="SomadorCompleto"/>
     <comp loc="(300,400)" name="SomadorCompleto"/>
+    <comp lib="0" loc="(270,180)" name="Splitter">
+      <a name="facing" val="south"/>
+      <a name="fanout" val="4"/>
+      <a name="incoming" val="4"/>
+    </comp>
     <comp lib="0" loc="(240,100)" name="Splitter">
       <a name="facing" val="south"/>
       <a name="fanout" val="4"/>
       <a name="incoming" val="4"/>
     </comp>
-    <comp lib="0" loc="(210,180)" name="Pin">
-      <a name="width" val="4"/>
-      <a name="label" val="B"/>
-    </comp>
     <comp lib="0" loc="(210,100)" name="Pin">
       <a name="width" val="4"/>
       <a name="label" val="A"/>
     </comp>
-    <comp loc="(580,400)" name="SomadorCompleto"/>
     <comp lib="0" loc="(890,440)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
@@ -332,18 +333,17 @@ end TCL_Generic;&#13;
       <a name="label" val="S"/>
       <a name="labelloc" val="east"/>
     </comp>
+    <comp lib="0" loc="(210,180)" name="Pin">
+      <a name="width" val="4"/>
+      <a name="label" val="B"/>
+    </comp>
     <comp loc="(440,400)" name="SomadorCompleto"/>
-    <comp lib="0" loc="(820,280)" name="Ground"/>
     <comp lib="0" loc="(860,440)" name="Splitter">
       <a name="facing" val="west"/>
       <a name="fanout" val="4"/>
       <a name="incoming" val="4"/>
     </comp>
-    <comp lib="0" loc="(270,180)" name="Splitter">
-      <a name="facing" val="south"/>
-      <a name="fanout" val="4"/>
-      <a name="incoming" val="4"/>
-    </comp>
+    <comp lib="0" loc="(820,280)" name="Ground"/>
   </circuit>
   <circuit name="meioSubtrator">
     <a name="circuit" val="meioSubtrator"/>
@@ -362,8 +362,8 @@ end TCL_Generic;&#13;
       <rect height="3" stroke="none" width="10" x="172" y="209"/>
       <text fill="#404040" font-family="Dialog" font-size="12" text-anchor="end" x="163" y="214">Tout</text>
       <circ-port height="10" pin="590,370" width="10" x="175" y="205"/>
-      <circ-port height="10" pin="590,260" width="10" x="175" y="165"/>
       <circ-port height="8" pin="300,350" width="8" x="46" y="206"/>
+      <circ-port height="10" pin="590,260" width="10" x="175" y="165"/>
       <circ-port height="8" pin="300,240" width="8" x="46" y="166"/>
       <rect fill="none" height="79" stroke="#000000" stroke-width="4" width="110" x="60" y="151"/>
       <text font-family="SansSerif" font-size="12" text-anchor="middle" x="113" y="194">HS</text>
@@ -380,26 +380,26 @@ end TCL_Generic;&#13;
     <wire from="(350,390)" to="(400,390)"/>
     <wire from="(390,280)" to="(460,280)"/>
     <wire from="(390,350)" to="(460,350)"/>
+    <comp lib="0" loc="(300,240)" name="Pin">
+      <a name="label" val="A"/>
+    </comp>
+    <comp lib="1" loc="(510,370)" name="AND Gate"/>
     <comp lib="1" loc="(520,260)" name="XOR Gate"/>
+    <comp lib="1" loc="(430,390)" name="NOT Gate"/>
     <comp lib="0" loc="(590,370)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="label" val="Tout"/>
       <a name="labelloc" val="east"/>
     </comp>
+    <comp lib="0" loc="(300,350)" name="Pin">
+      <a name="label" val="B"/>
+    </comp>
     <comp lib="0" loc="(590,260)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="label" val="S"/>
       <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="1" loc="(430,390)" name="NOT Gate"/>
-    <comp lib="0" loc="(300,350)" name="Pin">
-      <a name="label" val="B"/>
-    </comp>
-    <comp lib="1" loc="(510,370)" name="AND Gate"/>
-    <comp lib="0" loc="(300,240)" name="Pin">
-      <a name="label" val="A"/>
     </comp>
   </circuit>
   <circuit name="SubtratorCompleto">
@@ -413,8 +413,6 @@ end TCL_Generic;&#13;
       <text fill="#404040" font-family="Dialog" font-size="12" text-anchor="start" x="87" y="204">A</text>
       <text fill="#404040" font-family="Dialog" font-size="12" text-anchor="start" x="125" y="204">B</text>
       <text fill="#404040" font-family="Dialog" font-size="12" text-anchor="end" x="164" y="279">S</text>
-      <circ-port height="10" pin="780,240" width="10" x="155" y="295"/>
-      <circ-port height="8" pin="200,280" width="8" x="126" y="166"/>
       <rect fill="none" height="109" stroke="#000000" stroke-width="4" width="139" x="60" y="181"/>
       <text font-family="SansSerif" font-size="12" text-anchor="middle" x="170" y="204">Tin</text>
       <text font-family="SansSerif" font-size="12" text-anchor="middle" x="98" y="279">Tout</text>
@@ -422,11 +420,13 @@ end TCL_Generic;&#13;
       <polyline fill="none" points="90,181 90,170" stroke="#000000" stroke-width="4"/>
       <circ-port height="8" pin="200,240" width="8" x="86" y="166"/>
       <circ-port height="8" pin="200,380" width="8" x="166" y="166"/>
-      <circ-port height="10" pin="780,440" width="10" x="95" y="295"/>
+      <circ-port height="8" pin="200,280" width="8" x="126" y="166"/>
       <polyline fill="none" points="130,170 130,181" stroke="#000000" stroke-width="4"/>
       <polyline fill="none" points="170,180 170,170" stroke="#000000" stroke-width="4"/>
       <polyline fill="none" points="100,300 100,290" stroke="#000000" stroke-width="4"/>
       <polyline fill="none" points="160,300 160,290" stroke="#000000" stroke-width="4"/>
+      <circ-port height="10" pin="780,240" width="10" x="155" y="295"/>
+      <circ-port height="10" pin="780,440" width="10" x="95" y="295"/>
       <circ-anchor facing="east" height="6" width="6" x="157" y="297"/>
     </appear>
     <wire from="(450,280)" to="(450,380)"/>
@@ -442,21 +442,14 @@ end TCL_Generic;&#13;
     <wire from="(200,240)" to="(270,240)"/>
     <wire from="(200,280)" to="(270,280)"/>
     <wire from="(610,240)" to="(780,240)"/>
-    <comp lib="0" loc="(780,240)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="label" val="S"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(200,380)" name="Pin">
-      <a name="label" val="BORROW_IN"/>
-    </comp>
     <comp loc="(400,240)" name="meioSubtrator"/>
-    <comp lib="0" loc="(200,240)" name="Pin">
-      <a name="label" val="A"/>
-    </comp>
+    <comp loc="(610,240)" name="meioSubtrator"/>
     <comp lib="0" loc="(200,280)" name="Pin">
       <a name="label" val="B"/>
+    </comp>
+    <comp lib="1" loc="(740,440)" name="OR Gate"/>
+    <comp lib="0" loc="(200,240)" name="Pin">
+      <a name="label" val="A"/>
     </comp>
     <comp lib="0" loc="(780,440)" name="Pin">
       <a name="facing" val="west"/>
@@ -464,8 +457,15 @@ end TCL_Generic;&#13;
       <a name="label" val="BORROW_OUT"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp loc="(610,240)" name="meioSubtrator"/>
-    <comp lib="1" loc="(740,440)" name="OR Gate"/>
+    <comp lib="0" loc="(200,380)" name="Pin">
+      <a name="label" val="BORROW_IN"/>
+    </comp>
+    <comp lib="0" loc="(780,240)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="S"/>
+      <a name="labelloc" val="east"/>
+    </comp>
   </circuit>
   <circuit name="Subtrator_4bits">
     <a name="circuit" val="Subtrator_4bits"/>
@@ -522,27 +522,15 @@ end TCL_Generic;&#13;
     <wire from="(670,190)" to="(670,240)"/>
     <wire from="(220,190)" to="(670,190)"/>
     <wire from="(180,140)" to="(630,140)"/>
-    <comp loc="(540,370)" name="SubtratorCompleto"/>
-    <comp lib="0" loc="(90,170)" name="Pin">
-      <a name="width" val="4"/>
-      <a name="label" val="B"/>
-    </comp>
-    <comp lib="0" loc="(90,120)" name="Pin">
-      <a name="width" val="4"/>
-      <a name="label" val="A"/>
-    </comp>
-    <comp lib="0" loc="(180,170)" name="Splitter">
-      <a name="facing" val="south"/>
-      <a name="fanout" val="4"/>
-      <a name="incoming" val="4"/>
-    </comp>
-    <comp lib="0" loc="(770,250)" name="Ground"/>
-    <comp lib="0" loc="(160,410)" name="Ground"/>
-    <comp loc="(380,370)" name="SubtratorCompleto"/>
     <comp lib="0" loc="(780,380)" name="Splitter">
       <a name="facing" val="west"/>
       <a name="fanout" val="4"/>
       <a name="incoming" val="4"/>
+    </comp>
+    <comp loc="(380,370)" name="SubtratorCompleto"/>
+    <comp lib="0" loc="(90,170)" name="Pin">
+      <a name="width" val="4"/>
+      <a name="label" val="B"/>
     </comp>
     <comp lib="0" loc="(840,380)" name="Pin">
       <a name="facing" val="west"/>
@@ -551,13 +539,25 @@ end TCL_Generic;&#13;
       <a name="label" val="S"/>
       <a name="labelloc" val="east"/>
     </comp>
+    <comp lib="0" loc="(90,120)" name="Pin">
+      <a name="width" val="4"/>
+      <a name="label" val="A"/>
+    </comp>
+    <comp loc="(540,370)" name="SubtratorCompleto"/>
+    <comp lib="0" loc="(770,250)" name="Ground"/>
+    <comp lib="0" loc="(160,410)" name="Ground"/>
+    <comp loc="(700,370)" name="SubtratorCompleto"/>
+    <comp loc="(220,370)" name="SubtratorCompleto"/>
     <comp lib="0" loc="(140,120)" name="Splitter">
       <a name="facing" val="south"/>
       <a name="fanout" val="4"/>
       <a name="incoming" val="4"/>
     </comp>
-    <comp loc="(700,370)" name="SubtratorCompleto"/>
-    <comp loc="(220,370)" name="SubtratorCompleto"/>
+    <comp lib="0" loc="(180,170)" name="Splitter">
+      <a name="facing" val="south"/>
+      <a name="fanout" val="4"/>
+      <a name="incoming" val="4"/>
+    </comp>
   </circuit>
   <circuit name="Relatorio01_ex01">
     <a name="circuit" val="Relatorio01_ex01"/>
@@ -592,44 +592,44 @@ end TCL_Generic;&#13;
     <wire from="(820,400)" to="(900,400)"/>
     <wire from="(410,250)" to="(410,370)"/>
     <wire from="(800,330)" to="(800,380)"/>
-    <comp lib="0" loc="(100,240)" name="Pin">
-      <a name="label" val="A"/>
+    <comp lib="2" loc="(150,240)" name="Demultiplexer">
+      <a name="enable" val="false"/>
     </comp>
     <comp lib="0" loc="(150,330)" name="Pin">
       <a name="label" val="S1"/>
     </comp>
-    <comp lib="2" loc="(820,400)" name="Multiplexer">
-      <a name="selloc" val="tr"/>
-      <a name="enable" val="false"/>
-    </comp>
-    <comp lib="2" loc="(150,240)" name="Demultiplexer">
-      <a name="enable" val="false"/>
-    </comp>
     <comp loc="(630,230)" name="meioSomador"/>
-    <comp lib="0" loc="(100,400)" name="Pin">
-      <a name="label" val="B"/>
-    </comp>
     <comp lib="0" loc="(900,400)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="label" val="CTout"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="0" loc="(900,240)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="label" val="S"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="2" loc="(150,400)" name="Demultiplexer">
+    <comp lib="2" loc="(820,400)" name="Multiplexer">
       <a name="selloc" val="tr"/>
       <a name="enable" val="false"/>
+    </comp>
+    <comp lib="0" loc="(100,400)" name="Pin">
+      <a name="label" val="B"/>
     </comp>
     <comp loc="(590,370)" name="meioSubtrator">
       <a name="labelvisible" val="false"/>
     </comp>
     <comp lib="2" loc="(820,240)" name="Multiplexer">
       <a name="enable" val="false"/>
+    </comp>
+    <comp lib="0" loc="(100,240)" name="Pin">
+      <a name="label" val="A"/>
+    </comp>
+    <comp lib="2" loc="(150,400)" name="Demultiplexer">
+      <a name="selloc" val="tr"/>
+      <a name="enable" val="false"/>
+    </comp>
+    <comp lib="0" loc="(900,240)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="S"/>
+      <a name="labelloc" val="east"/>
     </comp>
   </circuit>
   <circuit name="Relatorio01_ex02">
@@ -663,17 +663,16 @@ end TCL_Generic;&#13;
     <wire from="(740,220)" to="(750,220)"/>
     <wire from="(210,300)" to="(310,300)"/>
     <wire from="(740,180)" to="(740,200)"/>
-    <comp lib="2" loc="(780,210)" name="Multiplexer">
+    <comp lib="0" loc="(120,190)" name="Pin">
+      <a name="width" val="4"/>
+      <a name="label" val="A"/>
+    </comp>
+    <comp lib="2" loc="(180,190)" name="Demultiplexer">
       <a name="width" val="4"/>
       <a name="enable" val="false"/>
     </comp>
     <comp lib="2" loc="(180,310)" name="Demultiplexer">
       <a name="selloc" val="tr"/>
-      <a name="width" val="4"/>
-      <a name="enable" val="false"/>
-    </comp>
-    <comp lib="0" loc="(180,260)" name="Pin"/>
-    <comp lib="2" loc="(180,190)" name="Demultiplexer">
       <a name="width" val="4"/>
       <a name="enable" val="false"/>
     </comp>
@@ -684,14 +683,15 @@ end TCL_Generic;&#13;
       <a name="labelloc" val="east"/>
     </comp>
     <comp loc="(560,300)" name="Subtrator_4bits"/>
-    <comp loc="(540,180)" name="Somador_4bits"/>
     <comp lib="0" loc="(120,310)" name="Pin">
       <a name="width" val="4"/>
       <a name="label" val="B"/>
     </comp>
-    <comp lib="0" loc="(120,190)" name="Pin">
+    <comp lib="0" loc="(180,260)" name="Pin"/>
+    <comp lib="2" loc="(780,210)" name="Multiplexer">
       <a name="width" val="4"/>
-      <a name="label" val="A"/>
+      <a name="enable" val="false"/>
     </comp>
+    <comp loc="(540,180)" name="Somador_4bits"/>
   </circuit>
 </project>
